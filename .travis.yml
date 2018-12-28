@@ -21,6 +21,6 @@ after_script:
 
 deploy:
   provider: script
-  script: bash push_docker_images.sh
+  script: bash -x push_docker_images.sh
   on:
     branch: part-3
