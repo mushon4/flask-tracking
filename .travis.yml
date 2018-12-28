@@ -1,0 +1,26 @@
+env:
+  - DOCKER_USERNAME=mushon DOCKER_PASSWORD=12345678
+
+language: python
+python:
+  - "2.7"
+#  - "3.3"
+#  - "3.4"
+#  - "3.5"
+#  - "3.5-dev"  # 3.5 development branch
+#  - "3.6"
+#  - "3.6-dev"  # 3.6 development branch
+#  - "3.7-dev"  # 3.7 development branch
+# command to install dependencies
+install:
+  - pip install -r requirements.txt
+script:
+  - python -m unittest discover
+after_script:
+  - docker build -t "$DOCKER_USERNAME":flask .
+
+deploy:
+  provider: script
+  script: bash push_docker_images.sh
+  on:
+    branch: part-3
