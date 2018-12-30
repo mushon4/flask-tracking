@@ -20,7 +20,7 @@ This project consists of:
     - docker login task
     - docker run container task
 
-* For ansible provisioning I have been using DigitalOcean droplet
+* For Ansible provisioning I have been using DigitalOcean droplet
 
 [Flask-Traking repository]: <https://github.com/mjhea0/flask-tracking>
 [travis-ci.com]: https://travis-ci.com/
