@@ -1,3 +1,3 @@
-venv
+*.db
 *.pyc
-.idea/
+.DS_Store

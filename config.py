@@ -1,39 +1,27 @@
-import os
+from os.path import abspath, dirname, join
 
-_basedir = os.path.abspath(os.path.dirname(__file__))
+_cwd = dirname(abspath(__file__))
 
 
 class BaseConfiguration(object):
     DEBUG = False
     TESTING = False
-
-    ADMINS = frozenset(['youremail@yourdomain.com'])
-    SECRET_KEY = 'SecretKeyForSessionSigning'
-
-    THREADS_PER_PAGE = 8
-
-    CSRF_ENABLED = True
-    CSRF_SESSION_KEY = "somethingimpossibletoguess"
-
-    RECAPTCHA_USE_SSL = False
-    RECAPTCHA_PUBLIC_KEY = 'blahblahblahblahblahblahblahblahblah'
-    RECAPTCHA_PRIVATE_KEY = 'blahblahblahblahblahblahprivate'
-    RECAPTCHA_OPTIONS = {'theme': 'white'}
-
-    DATABASE = 'app.db'
-
-    DATABASE_PATH = os.path.join(_basedir, DATABASE)
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + DATABASE_PATH
+    SECRET_KEY = 'flask-session-insecure-secret-key'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + join(_cwd, 'flask-tracking.db')
+    SQLALCHEMY_ECHO = False
+    HASH_ROUNDS = 100000
 
 
 class TestConfiguration(BaseConfiguration):
     TESTING = True
+    WTF_CSRF_ENABLED = False
 
-    CSRF_ENABLED = False
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'  # + join(_cwd, 'testing.db')
 
-    DATABASE = 'tests.db'
-    DATABASE_PATH = os.path.join(_basedir, DATABASE)
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'  # + DATABASE_PATH
+    # Since we want our unit tests to run quickly
+    # we turn this down - the hashing is still done
+    # but the time-consuming part is left out.
+    HASH_ROUNDS = 1
 
 
 class DebugConfiguration(BaseConfiguration):
