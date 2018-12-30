@@ -1,0 +1,17 @@
+---
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: Log into DockerHub
+      docker_login:
+        username: mushon
+        password: 12345678
+    - name: Recreate flask-tracking container
+      docker_container:
+        name: myflask
+        image: mushon/flask
+        state: started
+        recreate: yes
+        exposed_ports:
+        - 5000
+
