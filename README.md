@@ -22,6 +22,8 @@ This project consists of:
 
 * For Ansible provisioning I have been using DigitalOcean droplet
 
+link to app - http://68.183.71.133:5000/
+
 [Flask-Traking repository]: <https://github.com/mjhea0/flask-tracking>
 [travis-ci.com]: https://travis-ci.com/
 [dockerfile best practices]: https://docs.docker.com/v17.12/develop/develop-images/dockerfile_best-practices/
