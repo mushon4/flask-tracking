@@ -16,7 +16,7 @@ This project consists of:
     - Building docker image out of the docker file and pushing it to repository
     - Deploying docker image to docker hub repository by executing push_docker_image.sh script
 
-4. Ansible-playbook - provisioning flask app on a remote host
+4. play_flask_container.yml - Ansible-playbook, provisioning flask app on a remote host
     - docker login task
     - docker run container task
 
