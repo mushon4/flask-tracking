@@ -14,4 +14,4 @@ deploy:
   provider: script
   script: bash -x push_docker_image.sh
   on:
-    branch: Tikal_release
+    branch: master
