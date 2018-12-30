@@ -4,9 +4,9 @@ This project consists of:
 
 1. Flask simple application forked from here https://github.com/mjhea0/flask-tracking
 
-2. Dockerfile - instuctions for building our flask app docker image based on python official image.
+2. Dockerfile - instructions for building our flask app docker image based on python official image.
     - Adding flask app files
-    - Installing dependecies from requesitments.xml file
+    - Installing dependencies from requirements.xml file
     - Exposing 5000 port of which the app listens to
     - Running run.py by default which starts flask HTTP server
     - Requirements.xml is copied first in order to leverage docker caching (faster build) - [dockerfile best practices]
